@@ -1,0 +1,79 @@
+
+.content{
+	position:absolute; height:100%; width:100%; margin-left:20px; 
+	background-image:  url('./dist/images/background.jpg'); 
+}
+
+.pageLogos {
+	float:right; 
+}
+
+.pageHeader{
+	color:white;font-size:25px;   position: absolute;
+	margin-left:25px; margin-top:10px;
+}
+
+.centered {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(0%, 0%);
+  }
+
+.main-text{
+	font-size: 20px;
+	text-align: justify;
+	padding:20px;
+}
+
+.organizer-text > span{
+	width:100%;
+	text-align: center;
+}
+
+.organizer-text > a{
+	width:100%;
+	text-align: center;
+}
+
+.centerText{
+	font-size: 20px;
+	text-align: center;
+	padding:20px;
+}
+
+.org-name{
+	margin-top:0px;
+	margin-bottom:5px; 
+}
+
+.panel-text{
+	font-size: 20px;
+	
+}
+
+.text-overlay {
+	position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1rem;
+    margin-right: 30px;
+    font-size: 23px;
+    font-weight: 500;
+    color: BLACK;
+    width: 550px;
+    text-align: right;
+	/*
+	backdrop-filter: blur(14px) brightness(80%);
+	*/
+	}
+
+	.list-group-item-custom{
+		position: relative;
+		display: block;
+		padding: 0.75rem 1.25rem;
+		margin-bottom: -1px;
+		background-color: #fff; 
+		 
+	}
+	

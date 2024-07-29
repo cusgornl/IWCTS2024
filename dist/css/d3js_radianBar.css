@@ -1,0 +1,19 @@
+.radial{
+	.axis path,
+	.axis line {
+		fill: none;
+		shape-rendering: crispEdges;
+	}
+
+	.x.axis path {
+		display: none;
+	}
+	.tick {
+		text, line {
+			display:none;
+		}
+	}
+  circle {
+    stroke:#ccc;
+  }
+}
