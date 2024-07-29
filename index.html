@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/css/ol.css" type="text/css">
+    <link rel="stylesheet" href="dist\css" type="text/css/chordDiagram.css">
+    <meta charset="utf-8"/>
+    <style>
+      .map {
+        height: 100%;
+        width: 100%;
+      };
+      body {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+      };
+      .portfolio {
+        border-top: 1px solid #FFF;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+      } 
+      .box-header{
+        background: #074569;
+        height:60px;
+      }
+      .box-logo{
+        
+      }
+      .domain{
+        stroke-width:"1"
+      }
+
+      .border{
+        border: solid;
+      }
+
+      .maxWidthChartDisplay{
+        padding: 0px 0px 0px 0px;
+        margin-right: 0px;
+      }
+
+      .nav-item .active{
+        color:red
+      }
+
+      .profilePict{
+        width:100%; margin: 10px 5px 0 5px; padding-right: 10px; max-width:250px 
+      }
+      .profilePict2{
+        height:200px; margin: 10px 5px 0 5px; padding-right: 10px; 
+      }
+  
+    </style>
+    
+    <!--<script src="data/rds_sensors_fake.json" charset="utf-8"></script>-->
+
+    <link rel="icon" href="dist/images/ORNL-logo.png">
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
+  <link rel="stylesheet" href="dist/css/IWCTS.css"/>
+
+<!--
+  <script src="http://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>  -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+
+   <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+   
+
+
+  <title>IWCTS 2023 - Smart Mobility</title>
+  </head>
+  <body style="position:absolute; height:100%; width:100%"> 
+    <div class="box-header">
+
+      <h3 class="pageHeader" > IWCTS 2024 Workshop - GenAI and Smart Mobility </h3>   
+
+      <div class="box-logo pageLogos">               
+        <a>  
+          <img src="dist/images/ornl.png" style="height:35px; margin: 10px 5px 0 5px; padding-right: 10px; ">  
+        </a>
+        <a>  
+          <img src="dist/images/acmsigspatial-horizontal-small.png" 
+          style="height:35px; margin: 10px 5px 0 5px; padding-right: 10px; ">  
+        </a>
+          
+      </div>        
+        <!-- box-nav -->                
+        <!-- box-primary-nav-trigger -->
+         
+    </div> <!--This is the end of header-->
+    
+    <div class="content row">  
+      
+      <div class="col-sm-10 mx-auto border">
+        <div> 
+          <div class="text-overlay">
+            <!--<div>15th International Workshop on Computational Transportation Science</div>
+            <div>(co-located with ACM SIGSPATIAL 2022)</div>
+            <div>Seattle, Washington ~ November 1, 2022</div>-->
+          </div>
+          <a href="https://sigspatial2023.sigspatial.org/cfp/">
+            <img src="dist/images/atlanta_cover.png" style="width:100%; ">         
+          </a> 
+      </div> 
+
+      <div class="panels">
+        <nav class="list-group-item-custom list-group-item-action">
+          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+              <a class="nav-item nav-link active panel-text" id="nav-home-tab" 
+              data-toggle="tab" href="#home-panel" role="tab" 
+              aria-controls="home-panel" aria-selected="true">Home</a>
+              <a class="nav-item nav-link panel-text" id="nav-nws-tab" data-toggle="tab" 
+              href="#keynote-panel" role="tab" aria-controls="
+              keynote-panel" aria-selected="false">Keynote Speaker</a>
+              
+              <a class="nav-item nav-link panel-text" id="program-tab" data-toggle="tab" href="#program-panel" 
+              role="tab" aria-controls="program-panel" aria-selected="false">Program</a>
+
+              <a class="nav-item nav-link panel-text" id="orgc-panel-tab" data-toggle="tab" href="#orgc-panel" 
+              role="tab" aria-controls="orgc-panel" aria-selected="false">Organizers and Committee</a>
+
+              <a class="nav-item nav-link panel-text" id="paper-panel-tab" data-toggle="tab" href="#paper-panel" 
+              role="tab" aria-controls="paper-panel" aria-selected="false">Paper Submission</a>
+
+              <a class="nav-item nav-link panel-text" id="paper-panel-tab" data-toggle="tab" href="#dates-panel" 
+              role="tab" aria-controls="dates-panel" aria-selected="false">Important Dates</a>
+              
+              
+          </div>
+        </nav>
+        
+        <div class="tab-content cast_fullWidth_list list-group" id="nav-tabContent">
+          
+          <div class="tab-pane fade show active" id="home-panel" 
+          role="tabpanel" aria-labelledby="nav-home-tab">         
+              <div class="main-text">
+                The 17th International Workshop on Computational Transportation Science (IWCTS 2024) features a Smart Mobility 
+                track that addresses the increasing relevance of human mobility data. With the widespread use of cell phone probe data, 
+                connected automated vehicles, volunteered geographic information, and other sensing and simulation sources, there is 
+                unprecedented access to detailed mobility data. This wealth of information is being integrated into smart city 
+                frameworks and mobility management systems, driving significant advancements in intelligent transportation systems, 
+                building information management, human dynamics modeling, and urban planning. The computational intensity of managing 
+                and analyzing these large-scale datasets underscores the critical role of advanced computational and Artificial 
+                Intelligence (AI) techniques in these developments. The recent emerging Generative Artificial Intelligence (GenAI) 
+                technologies, such as the Large Language Models (LLMs) and Retrieval-Augmented Generation (RAG), have created further 
+                opportunity to revolutionize the existing applications of intelligent transportation system towards more intelligent 
+                and autonomous AI agents for more optimized and efficient urban mobility management.  
+              </div>
+
+              <div class="main-text">
+                We will build upon the success of previous workshops to continue to focus on the computational and 
+                informatics approaches for (not limited to):
+                <ol>
+                  <li><strong>Smart City Operations:</strong>: 
+                    Resiliency during extreme weather events (e.g., floods, tornadoes, etc), Intelligent Transportation Systems (ITS), 
+                    Connected and Autonomous Vehicles (CAVs), Building Information and Energy Modeling (BIM/BEM), electric grid management, 
+                    decision support, and optimization.
+                  </li>
+                  <li><strong>GenAI for Mobility</strong>: 
+                    Generative deep learning techniques, such as Generative adversarial networks (GANs), Variational autoencoder, and LLMs, for analyzing, 
+                    augmenting, and retrieving mobility data.
+                  </li>
+                  <li><strong>Infrastructure Sensing</strong>: 
+                    Digital Twin technologies, urban sensing infrastructure, edge computing, ad-hoc mobile sensing and computing, 
+                    Internet of Things (IoT) devices, and cyber-physical systems.
+                  </li>
+                  <li><strong>Human Dynamics Analysis</strong>: 
+                    Modeling and simulation of population and freight movements, dynamic routing algorithms, computational traffic 
+                    flow models and control algorithms, and the role of transportation in the smart city.
+                  </li>
+                  <li><strong>Intermodal Transportation System</strong>: 
+                    Simulation and analysis on the transportation and logistics of large-sized cargo in freight containers through two 
+                    or more modes of transport (e.g., maritime, air, railroads, and highways).
+                  </li>
+                  <li><strong>Cyberinfrastructure</strong>: Web-based platforms, software, or smartphone apps developed to facilitate (a) 
+                    the acquisition, management, and sharing of mobility apps, (b) the sharing and coupling of traffic and mobility simulations, 
+                    and (c) the delivery of smart mobility services for improving the quality and safety of the transportation system.
+                  </li>
+                
+                </ol>
+              </div>   
+              
+              <div class="main-text">
+                We welcome research papers from computer sciences, geosciences, geographic information science, 
+                transportation sciences, urban sciences, social sciences and other related sciences which address 
+                the above-mentioned focus areas. We will be organizing a panel alongside paper presentations / keynote. 
+                We seek to invite eminent people from industry, academia, and laboratories. We are offering IWCTS awards 
+                to the presentation and paper with the top quality and impact.
+              </div>
+      
+          </div>
+        
+          <div class="tab-pane fade show" id="keynote-panel" role="tabpanel" aria-labelledby="nav-keynote-tab">   
+            
+            <div id="main" >  
+              <h3 align="center"> Coming Soon! </h3>
+              <!--
+              <h3>A Multi-Commodity Air Freight Origin-Destination Demand Analysis  </h3>
+              <table width="210" border="0" align="left">
+                  <tbody><tr>
+                    <td><img src="dist/images/potrait/rajesh.jpg" 
+                      width="207" height="207" alt="Dr. Peter Vovsha"
+                      style="margin:10px;"
+                      ></td>
+                  </tr>
+                  <tr>
+                    <td align="center">Dr. Rajesh Paleti </td>
+                  </tr>
+              </tbody></table>
+              
+              <p><strong>ABSTRACT</strong>: Increasing volumes of air freight have created new challenges for airports and the cities and regions that house them, necessitating the development of models that are better able to estimate demand. This paper presents a novel analytical framework to forecast air freight tonnage by commodity type between an origin-destination (OD) pair as a function of socio-demographic composition, employment by industry type, economic conditions, and airport density at the two ends of that OD pair. The proposed framework is comprised of three modeling components - (1) a binary selection model to determine OD pairs with non-zero demand in at least one commodity category, (2) a stochastic frontier model to analyze total air freight demand across all commodity types while accounting for inefficiencies in the system that may reduce the maximum output (i.e., demand), and (3) a demand composition that allocates the total demand across different commodity types. Each of these models was estimated using the 2017 Freight Analysis Framework (FAF) data. To evaluate the efficacy of this tool in practice a policy analysis was undertaken to quantify the air freight demand changes in the region surrounding the Dallas Fort-Worth International Airport under different scenarios. The results of this case study demonstrate the practical applicability of the proposed framework to a large international airport.</p>
+              <p><strong>BIOGRAPHY</strong>: Rajesh Paleti is a Senior Research Scientist at Amazon and has 10+ years of experience in statistical inference, applied econometrics, and machine learning. His work includes several fundamental methodological contributions to discrete choice analysis consistent with utility-based microeconomic theory of consumer behavior. Rajesh is passionate about building data-driven models of human behavior informed by latest developments in data science, economics, and psychology literature. Rajesh published 50+ journal articles with 2,400 citations in leading econometrics journals. Prior to joining Amazon, Rajesh worked as a Research Scientist at Oak Ridge National Laboratory and Assistant Professor at Pennsylvania State University and Old Dominion University. Rajesh graduated from the University of Texas at Austin with a doctoral degree in Civil Engineering. 
+              </p>  -->           
+            </div>
+                     
+          </div>
+
+          <div class="tab-pane fade show" id="program-panel" role="tabpanel" aria-labelledby="nav-program-tab">           
+            <div  class="centerText">   
+              <div id="main2">   
+                <h3>Coming Soon!</h3>             
+                <!--
+                <h3>Tuesday, November 1, 2022</h3>
+                <p>All times are given in Seattle time (PST). If you click on the time, you will get the conversion to your local timezone.</p>
+            
+                 <p><a href="proceeding/">Link to Proceedings</a></p> -->
+                 <!--<p><a href="proceeding/IWCTS2022_Frontmatter.pdf">Link to Frontmatter</a></p>-->
+                  <!--<p><a href="proceeding/papers/">Link to Workshop Papers</a></p>  -->
+               
+                </div>
+            </div>
+            
+          </div>
+
+          <div class="tab-pane fade show" id="orgc-panel" role="tabpanel" aria-labelledby="nav-organizer-tab">
+            <div class="main-text">   
+              <p><strong>Organizers</strong></p>
+
+              <div class="row col-9 mx-auto">
+               
+                
+                <div class="row col-md-4 col-lg-3 offset-lg-1 col-sm-6 offset-sm-1 offset-md-1 col-xsm-12 organizer-text">
+                  <img src="dist/images/potrait/Yuan.jpg" 
+                  class="profilePict2">                       
+                  <div style="text-align: left;">
+                    <a href="https://www.ornl.gov/staff-profile/jinghui-yuan">Dr. Jinghui Yuan</a>
+                    R&D Staff, Oak Ridge National Laboratory</div>   
+                </div>
+              
+                <div class="row col-md-4 col-lg-3 offset-lg-1 col-sm-6 offset-sm-1 offset-md-1 col-xsm-12 organizer-text"> 
+                  <img src="dist/images/potrait/femi.jfif" 
+                    class="profilePict">                     
+                  <a href="https://www.ornl.gov/staff-profile/olufemi-omitaomu">
+                    <b>Dr. Femi A Omitaomu</b></a>
+                  <span>Senior R&D Staff, Oak Ridge National Laboratory (ORNL)</span>                
+                </div>
+
+                <div class="row col-md-4 col-lg-3 offset-lg-1 col-sm-6 offset-sm-1 offset-md-1 col-xsm-12 organizer-text"> 
+                  <img src="dist/images/potrait/photo_Guanhao Xu.jfif" 
+                    class="profilePict">                     
+                  <a href="https://www.ornl.gov/staff-profile/guanhao-xu">
+                    <b>Dr. Guanhao Xu</b></a>
+                  <span>Advanced Mobility R&D Staff, Oak Ridge National Laboratory (ORNL)</span>                
+                </div>
+
+                <div class="row col-md-4 col-lg-3 offset-lg-1 col-sm-6 offset-md-1 col-xsm-12 organizer-text"> 
+                  <img src="dist/images/potrait/haowen.jpg" 
+                  class="profilePict">                  
+                  <a href="https://www.ornl.gov/staff-profile/haowen-xu">
+                    <b>Dr. Haowen Xu</b></a>
+                  <span>Research Scientist, Oak Ridge National Laboratory (ORNL)</span>              
+                </div>
+                <hr class="row col-10 offset-1">
+                <div class="row col-12 organizer-text org-name"> 
+                  <span class="col-11 offset-1"> <a href="https://www.ornl.gov/group/comp-urban-sciences">Computational Urban Sciences Group (CUSG)</a>, Oak Ridge National Laboratory (ORNL) </span> 
+                 </div>
+              </div>
+
+              <br></br>
+
+             
+              <p><strong>Program Committee</strong></p>
+              <div> IWCTS has developed an engaged community happy to support this workshop. We will go back to the PC members of previous workshops. Previous year’s workshop had an excellent number of 14 PC members. We will go back to the PC members of previous workshops as well as involve other experts in the field to expand the IWCTS community. 
+                The following PC members have already confirmed their availability:</div>
+              
+              
+
+                <div class="row col-12 mx-auto">
+                  <div class="offset-md-1 col-md-3 offset-lg-1 col-lg-2 row">
+                      <img src="dist/images/potrait/jibo.jpg" 
+                      class="profilePict2 ">   
+                      <div style="text-align: left;"> 
+                        <a href="https://www.linkedin.com/in/jibonanandasanyal/">Dr. Jibonananda Sanyal</a>
+                        National Renewable Energy Laboratory
+                      </div>                 
+                  </div>
+
+                  <div class="offset-md-1 col-md-3 offset-lg-1 col-lg-2 row">
+                    <img src="dist/images/potrait/nag.jpg" 
+                    class="profilePict2 ">     
+                    <div style="text-align: left;">
+                      <a href="https://www.nrel.gov/research/staff/ambarish-nag.html">Dr. Ambarish Nag</a>
+                      National Renewable Energy Laboratory</div> 
+                    </div>
+
+                    <div class="offset-md-1 col-md-3 offset-lg-1 col-lg-2 row">
+                      <img src="dist/images/potrait/qichao.jpg" 
+                      class="profilePict2 ">     
+                      <div style="text-align: left;">
+                        <a href="https://www.nrel.gov/research/staff/qichao-wang.html">Dr. Qichao Wang</a>
+                        National Renewable Energy Laboratory</div> 
+                      </div>
+
+                      <div class="offset-md-1 col-md-3 offset-lg-1 col-lg-2 row">
+                        <img src="dist/images/potrait/severino.jpg" 
+                        class="profilePict2 ">     
+                        <div style="text-align: left;">
+                          <a href="https://www.linkedin.com/in/joseph-a-severino/">Dr. Joe Severino</a>
+                          National Renewable Energy Laboratory</div> 
+                        </div>
+
+                        <div class="offset-md-1 col-md-3 offset-lg-1 col-lg-2 row"> 
+                          <img src="dist/images/potrait/andy.jpg" 
+                            class="profilePict">                     
+                          <a href="https://www.ornl.gov/staff-profile/andy-s-berres">
+                            <b>Dr. Andy Berres</b></a>
+                          <span>Research Scientist, National Renewable Energy Laboratory (NREL)</span>                
+                        </div>
+
+
+
+                  <div class="offset-md-1 col-md-3 offset-lg-1 col-lg-2 row">
+                      <img src="dist/images/potrait/ross.jpg" 
+                      class="profilePict2 ">  
+                      <div style="text-align: left;">
+                        <a href="https://www.ornl.gov/staff-profile/ross-wang">Dr. Chieh Ross Wang</a>
+                        Oak Ridge National Laboratory
+                      </div>                                 
+                  </div>                  
+
+                 <div class="offset-md-1 col-md-3 offset-lg-1 col-lg-2 row">
+                    <img src="dist/images/potrait/tim.jpg" 
+                    class="profilePict2 ">        
+              
+                    <div style="text-align: left;">
+                      <a href="https://www.ornl.gov/staff-profile/tim-j-laclair">Dr. Tim LaClair</a>
+                      Oak Ridge National Laboratory</div>                                                          
+                  </div>                                  
+
+                  
+
+                  <div class="offset-md-1 col-md-3 offset-lg-1 col-lg-2 row">
+                    <img src="dist/images/potrait/gautam.jpg" 
+                    class="profilePict2">   
+                    <div style="text-align: left;">
+                      <a href="https://www.ornl.gov/staff-profile/gautam-thakur">Dr. Gautam Thakur</a>
+                      Oak Ridge National Laboratory</div>   
+                  </div>
+
+                  <div class="offset-md-1 col-md-3 offset-lg-1 col-lg-2 row">
+                    <img src="dist/images/potrait/Torres.jpg" 
+                    class="profilePict2">   
+                    <div style="text-align: left;">
+                      <a href="https://www.ornl.gov/staff-profile/jackeline-rios-torres">Dr. Jackeline Rios Torres</a>
+                      Oak Ridge National Laboratory</div>   
+                  </div>     
+                  
+                  <div class="offset-md-1 col-md-3 offset-lg-1 col-lg-2 row">
+                    <img src="dist/images/potrait/wan.jpg" 
+                    class="profilePict2">   
+                    <div style="text-align: left;">
+                      <a href="https://www.ornl.gov/staff-profile/wan-li">Dr. Wan Li</a>
+                      Oak Ridge National Laboratory</div>   
+                  </div>  
+
+                  <div class="offset-md-1 col-md-3 offset-lg-1 col-lg-2 row">
+                    <img src="dist/images/potrait/Abhishek.jpg" 
+                    class="profilePict2">   
+                    <div style="text-align: left;">
+                      <a href="https://www.ornl.gov/staff-profile/abhishek-v-potnis">
+                        Dr. Abhishek V Potnis</a>
+                      Oak Ridge National Laboratory</div>   
+                  </div>
+                
+
+                  <div class="offset-md-1 col-md-3 offset-lg-1 col-lg-2 row">
+                    <img src="dist/images/potrait/rajesh.jpg" 
+                    class="profilePict2">  
+                    <div style="text-align: left;">
+                      <a href="https://www.linkedin.com/in/rajesh-paleti-870bb821/">Dr. Rajesh Paleti</a>
+                      Amazon</div>  
+                  </div>  
+
+                  <div class="offset-md-1 col-md-3 offset-lg-1 col-lg-2 row">
+                    <img src="dist/images/potrait/xiao.jpg" 
+                    class="profilePict2">          
+                    <span style="text-align: left;">
+                      <a href="https://www.linkedin.com/in/xiao-li-83aa23a4/">Dr. Xiao Li</a>
+                      University of Oxford</span>  
+                  </div>
+
+                  <div class="offset-md-1 col-md-3 offset-lg-1 col-lg-2 row">
+                    <img src="dist/images/potrait/huang.jpg" 
+                    class="profilePict2">                    
+                    <br>
+                    <div style="text-align: left;">
+                      <a href="https://www.xiaohuang116.com/">Prof. Xiao Huang</a>
+                      University of Arkansas</div> 
+                  </div>
+
+                  
+                  <div class="offset-md-1 col-md-3 offset-lg-1 col-lg-2 row">
+                    <img src="dist/images/potrait/aziz.jpg" 
+                    class="profilePict2">   
+                    <div style="text-align: left;">
+                      <a href="https://ce.k-state.edu/people/faculty/aziz/">
+                      Prof. Husain Aziz</a>
+                      Kansas State University</div>   
+                  </div>
+
+                  <div class="offset-md-1 col-md-3 offset-lg-1 col-lg-2 row">
+                    <img src="dist/images/potrait/vikash.jpg" 
+                    class="profilePict2">   
+                    <div style="text-align: left;">
+                      <a href="https://www.cee.psu.edu/department/directory-detail-g.aspx?q=vvg104">
+                      Prof. Vikash Gayah</a>
+                      Penn State University</div>   
+                  </div>
+
+
+                </div>
+
+
+             
+              </div>
+          </div>
+
+          <div class="tab-pane fade show" id="paper-panel" role="tabpanel" aria-labelledby="nav-paper-tab">
+                            
+            <div class="main-text">               
+                <h2>PAPER SUBMISSION GUIDELINES</h2>
+                <p>All papers must be original and not simultaneously submitted to another journal or conference. The following paper categories are welcome:</p>
+                <ul>
+                  <li><strong>Full papers (up to 10 pages)</strong>: Original, unpublished research papers which belong to the scope of the workshop, i.e. computational transportation science and are not being considered for publication in any other forum.</li>
+                  <li> <strong>Short papers and Position Papers (up to 4 pages)</strong>: Papers describing the early research results on original work on computational transportation science. Authors must clearly state the ongoing and future work and the relevance of the results presented in the context of the scope of this workshop.</li>
+                  <li><strong>Demo Papers (up to 4 pages)</strong>: Describing original systems for demonstration/presentation at the conference.</li>
+                </ul>
+                <p>Papers must be in ACM SIG format (<a href="https://www.acm.org/publications/proceedings-template" target="new">https://www.acm.org/publications/proceedings-template</a>) (US Letter size, 8.5 x 11 inches) including text, figures and references. Accepted papers will be published in the ACM digital library under the condition that at least one author has registered for both the main SIGSPATIAL conference and the workshop, attends the workshop, and presents the accepted paper in the workshop. Otherwise, the accepted paper will not appear in the workshop proceedings or in the ACM Digital Library version of the workshop proceedings. </p>
+                <p>Please submit your papers to - <b>
+                  <a href="	https://easychair.org/conferences/?conf=iwcts2024" target="new">
+                    https://easychair.org/conferences/?conf=iwcts2024
+                  </a>
+                  
+                </b></p>
+                <h2>Camera-ready Paper Submission</h2>
+                <p>There are three important things to make sure while preparing the camera ready papers for the workshop:</p>
+                <ol>
+                  <li>Authors must address all the comments and concerns from the reviewers.</li>
+                  <li>Authors must follow the instructions for preparing the camera ready paper&nbsp;</li>
+                  <li>Providing copyright to ACM.</li>
+                </ol>
+                  <p>Deadline for submitting Camera-ready paper is&nbsp;<span style="color:red">September 1th, 2024</span>.</p>
+                <p>Step-by-step procedure:</p>
+                <ol>
+                  <!--
+                  <li>Please refer this website for the detailed instructions for preparing camera ready papers:&nbsp;<a href="http://sigspatial2022.sigspatial.org/camera-ready/">http://sigspatial2020.sigspatial.org/camera-ready/</a>&nbsp;&nbsp;All camera-ready papers must be formatted by the authors according to the same requirements for the main conference proceedings. The page length for IWCTS is 10 pages, but the actual format must comply with the instructions available at the website.&nbsp;</li>
+                  -->
+                  <li>Obtaining copyright block to be included in the camera-ready paper
+                    <ol>
+                      <li>IWCTS workshop organizers have sent the metadata of the accepted papers to ACM for collecting copyright from authors</li>
+                      <li>Authors of workshop papers will receive the instructions for electronically sending the copyright release forms to acm. Let us know if you won't hear back from ACM by Oct 12.&nbsp;</li>
+                      <li>Authors have to send copy-right form to ACM following the instructions.</li>
+                      <li>Authors will receive the confirmation e-mail from ACM including the correct ACM copyright block they have to edit in their camera-ready paper.</li>
+                    </ol>
+                  </li><li>Prepare and finalize the camera-ready paper and send them following the instructions they receive from the workshop organizers. The following is the checklist before you submit the final version:
+                    <ul>
+                      <li>a) is paper in PDF format?</li>
+                      <li>b) is page size US-Letter 8.5x11?</li>
+                      <li>c) is correct copyright block present with ISBN/YY/MM and copyright fee?</li>
+                      <li>d) is the correct location, year present in copyright block?</li>
+                      <!--<li>e) is the proper indexing and retrieval information from the ACM Computing Classification System(CCS) present? Details could be found at&nbsp;<a href="https://www.acm.org/about-acm/class">https://www.acm.org/about-acm/class</a>&nbsp;. Note that a common mistake by the authors is to have free forms.</li>
+                      -->
+                        <li>e) ensure that there are no page numbers</li>
+                    </ul>
+                  </li>
+                  <li>Submission of the Camera-ready paper: We have enabled the link on the easy chair submission portal to update the submission. You can upload the camera-ready paper there. For any reason, if you are not able to upload the camera-ready paper. You can send it to this&nbsp;email:<a href="mailto:iwcts@ornl.gov">iwcts@ornl.gov</a></li>
+                </ol>
+                <p>Please direct any questions regarding Camera-ready submission to&nbsp;<a href="mailto:iwcts@ornl.gov"> iwcts@ornl.gov</a></p>
+                  <p></p>
+              
+            </div>
+            
+           
+          </div>
+
+          <div class="tab-pane fade show" id="dates-panel" role="tabpanel" aria-labelledby="nav-dates-tab">
+              <div class="main-text">
+                <ul>           
+                  <li><b>Paper Submission Due: </b>
+                    <!--<span style="color:red">[CLOSED] </span>
+                    <span style="color: #D0D0D0"><strike>August 27th</strike>  -->
+                       <!--
+                      <span style="color:red">
+                        <strike>August 27th, 2023 11:59pm PDT (AoE)</strike>
+                      </span>  -->
+                      <span style="color:black">
+                        September 1th, 2024 11:59pm PDT (AoE)                        
+                      </span>   
+                    </li>
+                  <li><b>Review Deadline: </b>
+                      <!--<strike>September 6th, 2023</strike>-->
+                      <span >September 15th, 2024</span></li>  
+                  <li><b>Notification to the Authors: </b>
+                    <!--<strike>September 6th, 2023</strike>-->
+                    <span >September 25th, 2024</span></li>              
+                  <li><b> Camera Ready Papers Due: </b> <span>October 2nd, 2024</span> </li>
+                  <li><b>IWCTS Workshop: </b> October 29th, 2024 </li>
+                  <li> ACM SIGSPATIAL <strong>Conference</strong>: October 29th – November 1th, 2024 </li>
+                </ul>
+ 
+
+
+              </div>
+          </div>
+
+
+        </div>
+      </div> <!--end of panels-->
+
+
+
+
+      </div> <!--end of contenct-->
+    
+
+    
+    </div>        
+
+  
+  </body>
+</html>
+
